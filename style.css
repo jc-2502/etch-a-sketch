@@ -1,0 +1,16 @@
+#grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px;
+  justify-content: center;
+  align-content: center;
+  width: 449px;
+  height: 449px;
+  border: 1px solid;
+}
+
+.grid-square {
+  width: 25px;
+  height: 25px;
+  border: 1px solid;
+}
