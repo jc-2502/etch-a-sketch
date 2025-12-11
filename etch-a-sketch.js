@@ -1,9 +1,9 @@
-const gridContainer = document.querySelector('#grid-container');
-
 const gridSize = 16;
 // grid will be square
 
-def createGrid () {
+const gridContainer = document.querySelector('#grid-container');
+
+function createGrid () {
   const numSquares = gridSize ** 2;
 
   for (let i = 0; i < numSquares; i++) {
@@ -13,4 +13,15 @@ def createGrid () {
   }
 }
 
+function changeColour(event) {
+  event.target.style["background-color"] = "black";
+}
+
+function addEventListenersToSquares() {
+  const squares = document.querySelectorAll('.grid-square');
+
+  squares.forEach((square) => square.addEventListener("mouseenter", changeColour))
+}
+
 createGrid();
+addEventListenersToSquares()
