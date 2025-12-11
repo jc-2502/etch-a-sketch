@@ -8,6 +8,10 @@ setGridSizeButton.addEventListener("click", askGridSize);
 
 function askGridSize () {
   const response = prompt('enter grid size: ');
+  setGridSize(response);
+}
+
+function setGridSize(response) {
   const responseConvertedToNum = Number(response);
 
   if (Number.isInteger(responseConvertedToNum)
