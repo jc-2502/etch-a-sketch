@@ -1,4 +1,11 @@
+#set-grid-size {
+  height: 50px;
+  width: 100px;
+  font: 12px;
+}
+
 #grid-container {
+  margin-top: 24px;
   display: flex;
   flex-wrap: wrap;
   gap: 1px;

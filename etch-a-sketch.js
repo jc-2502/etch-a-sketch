@@ -1,7 +1,23 @@
-const gridSize = 16;
+let gridSize = 16;
 // grid will be square
 
+const setGridSizeButton = document.querySelector('#set-grid-size');
 const gridContainer = document.querySelector('#grid-container');
+
+setGridSizeButton.addEventListener("click", askGridSize);
+
+function askGridSize () {
+  const response = prompt('enter grid size: ');
+  const responseConvertedToNum = Number(response);
+
+  if (Number.isInteger(responseConvertedToNum)
+      && responseConvertedToNum > 0
+      && responseConvertedToNum <= 100) {
+    gridSize = responseConvertedToNum;
+  } else {
+    gridSize = 16;
+  }
+}
 
 function createGrid () {
   const numSquares = gridSize ** 2;
@@ -24,4 +40,4 @@ function addEventListenersToSquares() {
 }
 
 createGrid();
-addEventListenersToSquares()
+addEventListenersToSquares();
