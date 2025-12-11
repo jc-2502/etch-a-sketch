@@ -11,13 +11,12 @@
   gap: 1px;
   justify-content: center;
   align-content: center;
-  width: 449px;
-  height: 449px;
+  width: 500px;
+  height: 500px;
   border: 1px solid;
+  padding: 1px;
 }
 
 .grid-square {
-  width: 25px;
-  height: 25px;
   border: 1px solid;
 }

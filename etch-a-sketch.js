@@ -4,8 +4,6 @@ let gridSize = 16;
 const setGridSizeButton = document.querySelector('#set-grid-size');
 const gridContainer = document.querySelector('#grid-container');
 
-setGridSizeButton.addEventListener("click", askGridSize);
-
 function askGridSize () {
   const response = prompt('enter grid size: ');
   setGridSize(response);
@@ -21,16 +19,31 @@ function setGridSize(response) {
   } else {
     gridSize = 16;
   }
+
+  clearGrid();
+  createGrid();
+}
+
+function clearGrid () {
+  const squares = document.querySelectorAll('.grid-square');
+
+  squares.forEach((square) => square.remove())
 }
 
 function createGrid () {
   const numSquares = gridSize ** 2;
+  const squareSize = ((500 - 2 - (gridSize - 1) - (gridSize * 2)) / gridSize) + 'px';
+  console.log (squareSize);
 
   for (let i = 0; i < numSquares; i++) {
     const square = document.createElement('div');
     square.classList.add('grid-square');
+    square.style.width = squareSize;
+    square.style.height = squareSize;
     gridContainer.appendChild(square);
   }
+
+  addEventListenersToSquares();
 }
 
 function changeColour(event) {
@@ -43,5 +56,5 @@ function addEventListenersToSquares() {
   squares.forEach((square) => square.addEventListener("mouseenter", changeColour))
 }
 
+setGridSizeButton.addEventListener("click", askGridSize);
 createGrid();
-addEventListenersToSquares();
