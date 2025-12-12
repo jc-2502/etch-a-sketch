@@ -2,6 +2,7 @@ let gridSize = 16;
 // grid will be square
 
 const setGridSizeButton = document.querySelector('#set-grid-size');
+const clearButton = document.querySelector('#clear');
 const gridContainer = document.querySelector('#grid-container');
 
 function askGridSize () {
@@ -20,7 +21,6 @@ function setGridSize(response) {
     gridSize = 16;
   }
 
-  clearGrid();
   createGrid();
 }
 
@@ -31,6 +31,8 @@ function clearGrid () {
 }
 
 function createGrid () {
+  clearGrid();
+
   const numSquares = gridSize ** 2;
   const squareSize = ((500 - 2 - (gridSize - 1) - (gridSize * 2)) / gridSize) + 'px';
   // 500 width of grid container,
@@ -70,6 +72,7 @@ function changeColour(event) {
 
 function changeOpacity(event) {
   const currentOpacity = window.getComputedStyle(event.target).getPropertyValue("opacity");
+  // event.target.style.opacity initial value is "" since it doesn't exist in inline style yet
   event.target.style.opacity = calculateNewOpacity(currentOpacity);
 }
 
@@ -85,4 +88,5 @@ function addEventListenersToSquares() {
 }
 
 setGridSizeButton.addEventListener("click", askGridSize);
+clearButton.addEventListener("click", createGrid);
 createGrid();
