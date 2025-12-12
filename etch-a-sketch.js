@@ -5,25 +5,6 @@ const setGridSizeButton = document.querySelector('#set-grid-size');
 const clearButton = document.querySelector('#clear');
 const gridContainer = document.querySelector('#grid-container');
 
-function askGridSize () {
-  const response = prompt('enter grid size: ');
-  setGridSize(response);
-}
-
-function setGridSize(response) {
-  const responseConvertedToNum = Number(response);
-
-  if (Number.isInteger(responseConvertedToNum)
-      && responseConvertedToNum > 0
-      && responseConvertedToNum <= 100) {
-    gridSize = responseConvertedToNum;
-  } else {
-    gridSize = 16;
-  }
-
-  createGrid();
-}
-
 function clearGrid () {
   const squares = document.querySelectorAll('.grid-square');
 
@@ -49,6 +30,12 @@ function createGrid () {
   }
 
   addEventListenersToSquares();
+}
+
+function addEventListenersToSquares() {
+  const squares = document.querySelectorAll('.grid-square');
+
+  squares.forEach((square) => square.addEventListener("mouseenter", changeSquare))
 }
 
 function generateRandomRGB() {
@@ -81,10 +68,23 @@ function changeSquare(event) {
   changeOpacity(event);
 }
 
-function addEventListenersToSquares() {
-  const squares = document.querySelectorAll('.grid-square');
+function askGridSize () {
+  const response = prompt('enter grid size: ');
+  setGridSize(response);
+}
 
-  squares.forEach((square) => square.addEventListener("mouseenter", changeSquare))
+function setGridSize(response) {
+  const responseConvertedToNum = Number(response);
+
+  if (Number.isInteger(responseConvertedToNum)
+      && responseConvertedToNum > 0
+      && responseConvertedToNum <= 100) {
+    gridSize = responseConvertedToNum;
+  } else {
+    gridSize = 16;
+  }
+
+  createGrid();
 }
 
 setGridSizeButton.addEventListener("click", askGridSize);
