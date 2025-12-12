@@ -1,3 +1,29 @@
+* {
+  font-family: "Liberation Sans", sans-serif;
+}
+
+body, .controls, #grid-container {
+  display: flex;
+}
+
+.controls, #grid-container {
+  justify-content: center;
+}
+
+body {
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  margin-top: 20px;
+  margin-bottom: 24px;
+}
+
+.controls {
+  gap: 5px;
+}
+
 #set-grid-size, #clear {
   height: 50px;
   width: 100px;
@@ -5,11 +31,9 @@
 }
 
 #grid-container {
-  margin-top: 24px;
-  display: flex;
+  margin-top: 20px;
   flex-wrap: wrap;
   gap: 1px;
-  justify-content: center;
   align-content: center;
   width: 500px;
   height: 500px;
