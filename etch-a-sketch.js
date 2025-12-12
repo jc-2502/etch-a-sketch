@@ -56,15 +56,32 @@ function generateRandomRGB() {
   return "rgb(" + [r, g, b].join() + ")";
 }
 
+function calculateNewOpacity(currentOpacity) {
+  if (currentOpacity > 0) {
+    return currentOpacity - 0.1;
+  } else {
+    return 0;
+  }
+}
+
 function changeColour(event) {
-  const rgb = generateRandomRGB();
-  event.target.style["background-color"] = rgb;
+  event.target.style["background-color"] = generateRandomRGB();
+}
+
+function changeOpacity(event) {
+  const currentOpacity = window.getComputedStyle(event.target).getPropertyValue("opacity");
+  event.target.style.opacity = calculateNewOpacity(currentOpacity);
+}
+
+function changeSquare(event) {
+  changeColour(event);
+  changeOpacity(event);
 }
 
 function addEventListenersToSquares() {
   const squares = document.querySelectorAll('.grid-square');
 
-  squares.forEach((square) => square.addEventListener("mouseenter", changeColour))
+  squares.forEach((square) => square.addEventListener("mouseenter", changeSquare))
 }
 
 setGridSizeButton.addEventListener("click", askGridSize);
