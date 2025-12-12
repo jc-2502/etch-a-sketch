@@ -21,13 +21,13 @@ h1 {
 }
 
 .controls {
-  gap: 5px;
+  gap: 16px;
 }
 
 #set-grid-size, #clear {
   height: 50px;
   width: 100px;
-  font: 12px;
+  font-size: 15px;
 }
 
 #grid-container {
