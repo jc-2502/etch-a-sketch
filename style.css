@@ -6,13 +6,13 @@ body, .controls, #grid-container {
   display: flex;
 }
 
-.controls, #grid-container {
-  justify-content: center;
-}
-
 body {
   flex-direction: column;
   align-items: center;
+}
+
+.controls, #grid-container {
+  justify-content: center;
 }
 
 h1 {
@@ -33,14 +33,20 @@ h1 {
 #grid-container {
   margin-top: 20px;
   flex-wrap: wrap;
-  gap: 1px;
   align-content: center;
   width: 500px;
   height: 500px;
-  border: 1px solid;
-  padding: 1px;
 }
 
 .grid-square {
-  border: 1px solid;
+  border-top: 1px solid rgba(0, 0, 0, 0.5);
+  border-left: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.grid-square-bottom {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.grid-square-right {
+  border-right: 1px solid rgba(0, 0, 0, 0.5);
 }

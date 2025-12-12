@@ -15,17 +15,22 @@ function createGrid () {
   clearGrid();
 
   const numSquares = gridSize ** 2;
-  const squareSize = ((500 - 2 - (gridSize - 1) - (gridSize * 2)) / gridSize) + 'px';
-  // 500 width of grid container,
-  // 2 for grid container padding,
-  // grid-Size - 1 for gaps between squares,
-  // gridSize * 2 for borders of squares
+  const squareSize = ((500 - (gridSize * 2)) / gridSize) + 'px';
+  // 500 width of grid container, gridSize * 2 for borders of squares
 
   for (let i = 0; i < numSquares; i++) {
     const square = document.createElement('div');
     square.classList.add('grid-square');
     square.style.width = squareSize;
     square.style.height = squareSize;
+
+    if ((i + 1) % gridSize === 0) {
+      square.classList.add('grid-square-right');
+    }
+    if (numSquares - i <= gridSize) {
+      square.classList.add('grid-square-bottom');
+    }
+
     gridContainer.appendChild(square);
   }
 
