@@ -33,7 +33,10 @@ function clearGrid () {
 function createGrid () {
   const numSquares = gridSize ** 2;
   const squareSize = ((500 - 2 - (gridSize - 1) - (gridSize * 2)) / gridSize) + 'px';
-  console.log (squareSize);
+  // 500 width of grid container,
+  // 2 for grid container padding,
+  // grid-Size - 1 for gaps between squares,
+  // gridSize * 2 for borders of squares
 
   for (let i = 0; i < numSquares; i++) {
     const square = document.createElement('div');
