@@ -36,18 +36,12 @@ h1 {
   align-content: center;
   width: 500px;
   height: 500px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  border-right: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 .grid-square {
   box-sizing: border-box;
   border-top: 1px solid rgba(0, 0, 0, 0.5);
   border-left: 1px solid rgba(0, 0, 0, 0.5);
-}
-
-.grid-square-bottom {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-}
-
-.grid-square-right {
-  border-right: 1px solid rgba(0, 0, 0, 0.5);
 }

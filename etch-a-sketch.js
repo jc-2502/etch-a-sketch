@@ -19,16 +19,10 @@ function createGrid () {
 
   for (let i = 0; i < numSquares; i++) {
     const square = document.createElement('div');
+
     square.classList.add('grid-square');
     square.style.width = squareSize;
     square.style.height = squareSize;
-
-    if ((i + 1) % gridSize === 0) {
-      square.classList.add('grid-square-right');
-    }
-    if (numSquares - i <= gridSize) {
-      square.classList.add('grid-square-bottom');
-    }
 
     gridContainer.appendChild(square);
   }
