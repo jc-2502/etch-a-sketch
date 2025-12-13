@@ -15,8 +15,7 @@ function createGrid () {
   clearGrid();
 
   const numSquares = gridSize ** 2;
-  const squareSize = ((500 - (gridSize * 2)) / gridSize) + 'px';
-  // 500 width of grid container, gridSize * 2 for borders of squares
+  const squareSize = (500 / gridSize) + 'px';
 
   for (let i = 0; i < numSquares; i++) {
     const square = document.createElement('div');
@@ -50,11 +49,10 @@ function generateRandomRGB() {
   return "rgb(" + [r, g, b].join() + ")";
 }
 
-function calculateNewOpacity(currentOpacity) {
-  currentOpacityConvertedToNumber = Number(currentOpacity);
+function calculateNewOpacity(event) {
+  currentOpacityConvertedToNumber = Number(event.target.style.opacity);
 
-  console.log(currentOpacity);
-  if (currentOpacity === 0) {
+  if (currentOpacityConvertedToNumber === 0) {
     // event.target.style.opacity initial value is "" since it doesn't exist in inline style yet
     return '0.1';
   } else if (currentOpacityConvertedToNumber < 1) {
@@ -67,7 +65,7 @@ function changeColour(event) {
 }
 
 function changeOpacity(event) {
-  event.target.style.opacity = calculateNewOpacity(event.target.style.opacity);
+  event.target.style.opacity = calculateNewOpacity(event);
 }
 
 function changeSquare(event) {
