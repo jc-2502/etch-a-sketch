@@ -6,25 +6,31 @@ const clearButton = document.querySelector('#clear');
 const gridContainer = document.querySelector('#grid-container');
 
 function clearGrid () {
-  const squares = document.querySelectorAll('.grid-square');
+  const gridRows = document.querySelectorAll('.grid-row');
 
-  squares.forEach((square) => square.remove())
+  gridRows.forEach((gridRow) => gridRow.remove())
 }
 
 function createGrid () {
   clearGrid();
 
-  const numSquares = gridSize ** 2;
   const squareSize = (500 / gridSize) + 'px';
 
-  for (let i = 0; i < numSquares; i++) {
-    const square = document.createElement('div');
+  for (let i = 0; i < gridSize; i++) {
+    const gridRow = document.createElement('div');
 
-    square.classList.add('grid-square');
-    square.style.width = squareSize;
-    square.style.height = squareSize;
+    for (let j = 0; j < gridSize; j++) {
+      const square = document.createElement('div');
 
-    gridContainer.appendChild(square);
+      square.classList.add('grid-square');
+      square.style.width = squareSize;
+      square.style.height = squareSize;
+
+      gridRow.appendChild(square);
+    }
+
+    gridRow.classList.add('grid-row');
+    gridContainer.appendChild(gridRow);
   }
 
   addEventListenersToSquares();

@@ -2,17 +2,18 @@
   font-family: "Liberation Sans", sans-serif;
 }
 
-body, .controls, #grid-container {
+body, .controls, #grid-container, .grid-row {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 body {
   flex-direction: column;
-  align-items: center;
 }
 
-.controls, #grid-container {
-  justify-content: center;
+.grid-row, .grid-square {
+  box-sizing: border-box;
 }
 
 h1 {
@@ -41,7 +42,6 @@ h1 {
 }
 
 .grid-square {
-  box-sizing: border-box;
   border-top: 1px solid rgba(0, 0, 0, 0.5);
   border-left: 1px solid rgba(0, 0, 0, 0.5);
 }
