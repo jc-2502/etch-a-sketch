@@ -1,6 +1,5 @@
 * {
   font-family: "Liberation Sans", sans-serif;
-  box-sizing: border-box;
 }
 
 body, .controls, #grid-container {
@@ -40,10 +39,9 @@ h1 {
 }
 
 .grid-square {
+  box-sizing: border-box;
   border-top: 1px solid rgba(0, 0, 0, 0.5);
   border-left: 1px solid rgba(0, 0, 0, 0.5);
-  border-bottom: 1px solid rgba(0, 0, 0, 0);
-  border-right: 1px solid rgba(0, 0, 0, 0);
 }
 
 .grid-square-bottom {
