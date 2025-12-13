@@ -51,10 +51,14 @@ function generateRandomRGB() {
 }
 
 function calculateNewOpacity(currentOpacity) {
-  if (currentOpacity > 0) {
-    return currentOpacity - 0.1;
-  } else {
-    return 0;
+  currentOpacityConvertedToNumber = Number(currentOpacity);
+
+  console.log(currentOpacity);
+  if (currentOpacity === 0) {
+    // event.target.style.opacity initial value is "" since it doesn't exist in inline style yet
+    return '0.1';
+  } else if (currentOpacityConvertedToNumber < 1) {
+    return (currentOpacityConvertedToNumber + 0.1).toString();
   }
 }
 
@@ -63,9 +67,7 @@ function changeColour(event) {
 }
 
 function changeOpacity(event) {
-  const currentOpacity = window.getComputedStyle(event.target).getPropertyValue("opacity");
-  // event.target.style.opacity initial value is "" since it doesn't exist in inline style yet
-  event.target.style.opacity = calculateNewOpacity(currentOpacity);
+  event.target.style.opacity = calculateNewOpacity(event.target.style.opacity);
 }
 
 function changeSquare(event) {
