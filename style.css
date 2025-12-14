@@ -5,11 +5,18 @@
 body, .controls, #grid-container, .grid-row {
   display: flex;
   justify-content: center;
+}
+
+body, #grid-container {
+  flex-direction: column;
+}
+
+body, .controls {
   align-items: center;
 }
 
-body {
-  flex-direction: column;
+#grid-container, .grid-row {
+  align-items: stretch;
 }
 
 .grid-row, .grid-square {
@@ -33,12 +40,14 @@ h1 {
 
 #grid-container {
   margin-top: 20px;
-  flex-wrap: wrap;
-  align-content: center;
   width: 500px;
   height: 500px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
   border-right: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.grid-row, .grid-square {
+  flex: 1 0 0;
 }
 
 .grid-square {

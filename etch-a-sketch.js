@@ -14,18 +14,12 @@ function clearGrid () {
 function createGrid () {
   clearGrid();
 
-  const squareSize = (500 / gridSize) + 'px';
-
   for (let i = 0; i < gridSize; i++) {
     const gridRow = document.createElement('div');
 
     for (let j = 0; j < gridSize; j++) {
       const square = document.createElement('div');
-
       square.classList.add('grid-square');
-      square.style.width = squareSize;
-      square.style.height = squareSize;
-
       gridRow.appendChild(square);
     }
 
