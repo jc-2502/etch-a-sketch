@@ -8,7 +8,7 @@ const gridContainer = document.querySelector('#grid-container');
 function clearGrid () {
   const gridRows = document.querySelectorAll('.grid-row');
 
-  gridRows.forEach((gridRow) => gridRow.remove())
+  gridRows.forEach(gridRow => gridRow.remove())
 }
 
 function createGrid () {
@@ -33,11 +33,11 @@ function createGrid () {
 function addEventListenersToSquares() {
   const squares = document.querySelectorAll('.grid-square');
 
-  squares.forEach((square) => square.addEventListener("mouseenter", changeColour))
+  squares.forEach(square => square.addEventListener('mouseenter', changeColour));
 }
 
 function changeColour(event) {
-  event.target.style["background-color"] = generateRGBA(event);
+  event.target.style['background-color'] = generateRGBA(event);
 }
 
 function generateRGBA(event) {
@@ -52,10 +52,10 @@ function generateRGBA(event) {
 }
 
 function calculateNewOpacity(event) {
-  const currentRGBA = event.target.style["background-color"];
+  const currentRGBA = event.target.style['background-color'];
 
-  // initial value of event.target.style.property is "" since they don't exist in inline style yet
-  if (currentRGBA === "" ) {
+  // initial value of event.target.style.property is '' since they don't exist in inline style yet
+  if (currentRGBA === '' ) {
     // blank square
     return 0.1;
   } else {
@@ -65,7 +65,7 @@ function calculateNewOpacity(event) {
       // if present, alpha should be 0.1 - 0.9;
       return Number(rgbaValues[3]) + 0.1;
     } else if (rgbaValues.length === 3) {
-      // rgba with alpha value 1 returns rgba without the alpha
+      // rgba with alpha value 1 returns rgb without the alpha
       return 1;
     }
   }
@@ -90,6 +90,6 @@ function setGridSize(response) {
   createGrid();
 }
 
-setGridSizeButton.addEventListener("click", askGridSize);
-clearButton.addEventListener("click", createGrid);
+setGridSizeButton.addEventListener('click', askGridSize);
+clearButton.addEventListener('click', createGrid);
 createGrid();
